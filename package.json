@@ -1,0 +1,23 @@
+{
+  "name": "tyger",
+  "version": "0.0.1",
+  "description": "yt-dlp web interface",
+  "engines": {
+    "node": "16.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "nanoid": "^3.3.2"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
