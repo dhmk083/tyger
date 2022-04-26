@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const { spawn } = require("child_process");
 const { nanoid } = require("nanoid");
+const { debounced } = require("@dhmk/utils");
 
 const downloadsDirname = "downloads";
 fs.mkdirSync(downloadsDirname, { recursive: true });
@@ -68,8 +69,11 @@ express()
         res.end();
       });
 
+    const trickHeroku = debounced(() => proc.connected && res.write("."), 2000);
+
     proc.stdout.setEncoding("utf8").on("data", (data) => {
       print(data);
+      trickHeroku();
     });
 
     proc.stderr.setEncoding("utf8").on("data", (data) => {
