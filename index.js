@@ -53,7 +53,7 @@ express()
         "0",
         "--embed-thumbnail",
         "-o",
-        "%(title)s.%(ext)s",
+        "%(channel)s - %(title)s.%(ext)s",
         url,
       ],
       { cwd: fileDir }
